@@ -1,0 +1,18 @@
+.header {
+  background: rgb(4, 9, 11);
+  text-align: center;
+  text-decoration: overline;
+  color: aliceblue;
+}
+
+.sidebar {
+  background-color: rgb(226, 140, 26);
+  width: 150px;
+  text-align: center;
+  float: none;
+}
+
+.footer {
+  background: rgb(147, 180, 147);
+  text-align: left;
+}

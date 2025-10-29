@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+            
+
+        }
+        body{
+            display: flex;
+            background:rgb(156, 146, 146);
+            color: rgb(20, 18, 18);
+        }
+        .sidebar{
+            width: 220px;
+            min-height: 100vh;
+            background: brown;
+            color:rgb(243, 237, 237);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+        }
+        .sidebar h2{
+            
+            margin:0rem 0rem;
+            font-size: 1.5rem;
+            font-weight: 1rem;
+            display: block;
+            border-radius: 6px;
+            padding:6px;
+            
+            transition: background 0.3s color 0.3s;
+        }
+        .sidebar h2:hover{
+            background: rgb(225, 197, 197);
+            color: black;
+          
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebarli{
+            margin: 0rem 0rem;
+             
+        }
+        .sidebar a{
+            color:rgb(237, 231, 231);
+            text-decoration: none;
+            display: block;
+            border-radius: 6px;
+            transition: background 0.3s color 0.5s;
+
+
+            
+            padding: 0.5rem 0.75rem ;
+        }
+        .sidebar a:hover{
+            background: grey;
+            color: black;
+
+        }
+        .content{
+            margin-left: 240px;
+            padding:1rem;
+            flex: 1;
+        }
+        .section-title{
+            
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        .products {
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr ;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+           
+        }
+        .card{
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0px 2px 3px black;
+            display:flex;
+            flex-direction: column;
+            transition: transform 0.3s box-shadow  0.2s;
+        }
+        .card:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 12px black;
+        }
+        .card img{
+            width: 100%;
+            height: 580px;
+            object-fit: cover;
+          
+        }
+        .card h3 {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+         .card p {
+            padding: 0 1rem;
+            font-size: 0.96rem;
+            color: #555;
+            flex-grow: 1;
+        }
+         .buy-btn {
+            margin: 1rem;
+            padding: 0.6rem 1rem;
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buy-btn:hover{
+            background: #1e293b;
+
+
+        }
+         .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .blog-card {
+            background: #fff;
+            margin:1rem;
+            display:flex;
+            flex-direction:column;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .blog-card h3 {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .blog-card p {
+            padding: 0 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .read-more {
+            padding: 0.8rem 1rem;
+            color: #3b82f6;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #2563eb;
+        }
+         /* Responsive: collapse sidebar */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                min-height: auto;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar ul {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+
+      
+            
+
+
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>
+            Menu
+        </h2>
+        <ul>
+            <li><a href="#product">Shop</a></li>
+            <li><a href="#watch">Blog</a></li>
+            <li><a href="#connectus">Contact</a></li>
+        </ul>
+
+    </div>
+    <div class="content">
+        <h1 id="products" class="section-title">Our Product</h1>
+        <div class="products">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Product">
+                <h3>Mordern Sneaker</h3>
+                <p>Comfortabele and stylish sneaker for everyday wear</p>
+                 <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1637412173653-de70428ee3ce?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Product">
+                <h3>Smart Watch</h3>
+                <p>Track your health and stay connected with ease.</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1592921870789-04563d55041c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Product">
+                <h3>Wireless Earbuds</h3>
+                <p>Experience crisp sound quality with noise cancellation.</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+
+        </div>
+        <h1 id="Blogs" class="section-title">Latest Blogs</h1>
+        <div class="Blogs">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?q=80&w=2320&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Blog">
+                <h3>How to Build Responsive UI</h3>
+                <p>Learn tips and tricks to make your websites adapt beautifully on any device.</p>
+                <div class="read-more">Read More</div>
+            </div>
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?q=80&w=2320&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Blog">
+                <h3>Designing with Flexbox</h3>
+                <p>Flexbox is a powerful layout tool. Here’s how you can use it effectively.</p>
+                <div class="read-more">Read More</div>
+            </div>
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?q=80&w=2320&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Blog">
+                <h3>E-commerce UI Tips</h3>
+                <p>Boost your sales with a clean and user-friendly product card design.</p>
+                <div class="read-more">Read More</div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

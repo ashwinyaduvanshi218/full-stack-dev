@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ball to Corners Animation</title>
+  <style>
+    /* container (the rectangular box) */
+    .box {
+      width: 400px;
+      height: 250px;
+      border: 3px solid #333;
+      position: relative;      /* needed so absolute children are positioned inside */
+      margin: 40px auto;
+      background: #f8f8f8;
+      overflow: hidden;
+    }
+
+    /* the ball */
+    .ball {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: red;
+      position: absolute;
+      /* start at top-left corner */
+      top: 0;
+      left: 0;
+      /* make movement smooth and continuous */
+      animation: moveCorners 4s linear infinite;
+    }
+
+    /* keyframes that move the ball to each corner in sequence:
+       0%   -> top-left
+       25%  -> top-right
+       50%  -> bottom-right
+       75%  -> bottom-left
+       100% -> back to top-left
+    */
+    @keyframes moveCorners {
+      0%   { top: 0;               left: 0; }
+      25%  { top: 0;               left: calc(100% - 30px); } /* 30px is ball width */
+      50%  { top: calc(100% - 30px); left: calc(100% - 30px); }
+      75%  { top: calc(100% - 30px); left: 0; }
+      100% { top: 0;               left: 0; }
+    }
+
+    /* optional: center page text and give a tiny instruction */
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; text-align: center; }
+    p.small { font-size: 0.9rem; color:#555; }
+  </style>
+</head>
+<body>
+  <h2>Red ball visiting every corner (infinite)</h2>
+  <div class="box">
+    <div class="ball" title="I'm moving!"></div>
+  </div>
+  <p class="small">Hover the ball to pause the animation.</p>
+
+  <script>
+    // small extra: pause on hover (nice for demo)
+    const ball = document.querySelector('.ball');
+    ball.addEventListener('mouseenter', () => ball.style.animationPlayState = 'paused');
+    ball.addEventListener('mouseleave', () => ball.style.animationPlayState = 'running');
+  </script>
+</body>
+</html>

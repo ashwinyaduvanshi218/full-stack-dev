@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .small {
+            text-align: center;
+        }
+
+        .box {
+            width: 400px;
+            height: 250px;
+            border: 3px solid #181b15;
+            position: relative;
+            margin: 40px auto;
+            background: #e7e1e1;
+            overflow: hidden;
+
+        }
+
+        .ball {
+            width: 30px;
+            height: 30px;
+            
+            border-radius: 50%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: #c00b0b;
+            animation: moveCorners 4s ease infinite;
+
+
+
+        }
+
+        .ballo {
+            width: 30px;
+            height: 30px;
+            
+            border-radius: 50%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: #470bc0;
+            animation: movefaster 3s ease infinite;
+
+
+
+        }
+
+        @keyframes movefaster {
+            0%, 100% {
+                top: 0;
+                left: calc(100% - 30px);
+
+            }
+
+            25% {
+                top: calc(100% - 30px);
+                left: calc(100% - 30px);
+
+            }
+
+            50% {
+                top: calc(100% - 30px);
+                left: 0;
+
+            }
+
+            75% {
+                top: 0;
+                left: 0;
+
+            }
+        }
+
+        @keyframes moveCorners {
+            0% {
+                top: 0;
+                left: 0;
+            }
+
+            25% {
+                top: 0;
+                left: calc(100% - 30px);
+            }
+
+            50% {
+                top: calc(100% - 30px);
+                left: calc(100% - 30px);
+            }
+
+            75% {
+                top: calc(100% - 30px);
+                left: 0;
+            }
+
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Red ball visiting every corner (infinite)</h2>
+    <div class="box">
+        <div class="ball" title="I'm moving!"></div>
+        <div class="ballo" title="I'm also moving!"></div>
+    </div>
+    <p class="small">Hover the ball to pause the animation.</p>
+
+     <script>
+        const ball = document.querySelector('.ball');
+        ball.addEventListener('mouseenter', () => ball.style.animationPlayState = 'paused');
+        ball.addEventListener('mouseleave', () => ball.style.animationPlayState = 'running');
+    </script>
+    <script>
+        const ballo = document.querySelector('.ballo');
+        ballo.addEventListener('mouseenter', () => ballo.style.animationPlayState = 'paused');
+        ballo.addEventListener('mouseleave', () => ballo.style.animationPlayState = 'running');
+    </script> 
+
+
+
+</body>
+
+</html>
